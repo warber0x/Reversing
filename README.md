@@ -1,4 +1,4 @@
-,# Live System Cracking
+# Live System Cracking
 
 
 In this article, I will try to explain what I did to crack a license mechanism of a home automation system.
