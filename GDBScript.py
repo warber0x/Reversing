@@ -12,8 +12,7 @@ class SAVANTGdbTools:
         countfile = ''
         gdbfile = ''
         def __init__(self):
-                #super (showPath, self).__init__(gdb.BP_BREAKPOINT,
-internal=True)
+                #super (showPath, self).__init__(gdb.BP_BREAKPOINT,internal=True)
                 #gdbfile = open("GDB.txt", "r")
                 countfile = open("COUNTER.txt", "w")
                 countfile.write("0")
@@ -59,17 +58,21 @@ internal=True)
                         gdb.execute("set $eax=0x1")
                 '''
                 #*****  Test mechanism to stop the script *****#
+                ''' 
+                    I create a file GDB.txt that will contain 0 or 1. 
+                    This will allow to stop the script 
+                '''
                 gdbfile = open("GDB.txt","r")
                 isStop = gdbfile.read()
                 gdbfile.close()
                 print "GDB env: " + isStop
 
                 if (isStop[0] == '1'):
-                        print ("continue ...")#.format(isStop))
+                        print ("continue ...") #.format(isStop))
                         gdb.execute("set pagination off")
                         gdb.execute("continue")
                 if (isStop[0] == '0'):
-                        print ("Stop script ...")#.format(isStop))
+                        print ("Stop script ...") #.format(isStop))
                         gdb.execute("set pagination on")
                         gdb.events.stop.disconnect(self.changeRegisters)
                 #**********************************************#
