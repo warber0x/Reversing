@@ -13,7 +13,7 @@ The first thing that I made is a plan containing the points that I should follow
 
 The program uses a function called CheckLicense inside of another function which is called CheckAuthorization. Once the CheckLicense finishes, it returns a value that depends on whether the license is valid or not. When the license is not present or is not valid the register EAX = -84 and when is valid EAX = 10000. 
 
-The challenge was, the function that examine the legitimacy of the license was always running each minute. So any manual modification on the register EAX will be overwritten by the next check. The solution was to create a Python Script that will inspect EAX if it has -84 value and change it by 10000 each time checkLicense terminates.
+The challenge was, the function that examine the legitimacy of the license was always running each minute. So any manual modification on the register EAX will be overwritten by the next check. The solution was to create a Python Script "GDBScript.py" that will inspect EAX if it has -84 value and change it by 10000 each time checkLicense terminates. 
 
 Another solution was to create a library that has the same behavior as the original one and returns the value that we want. However, this not ready yet. 
 
